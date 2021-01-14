@@ -1,8 +1,6 @@
-class Foo {
-  saySome() {
-    console.log("saySome");
-  }
-}
+import Vue from "vue";
+import App from "./App.vue";
 
-const foo = new Foo();
-foo.saySome();
+new Vue({
+  render: (h) => h(App),
+}).$mount("#app");
