@@ -3,6 +3,8 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 const copyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const vueLoaderPlugin = require("vue-loader/lib/plugin");
+const miniCssExtractPlugin = require("mini-css-extract-plugin");
+
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
@@ -51,12 +53,20 @@ module.exports = {
       ],
     }),
     new vueLoaderPlugin(),
+    new miniCssExtractPlugin({
+      filename: "css/[name].[hash:8].css",
+      chunkFilename: "[id].css",
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.vue$/,
         use: ["vue-loader"],
+      },
+      {
+        test: /\.scss$/,
+        use: [miniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.js$/,
