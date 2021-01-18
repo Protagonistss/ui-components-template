@@ -4,12 +4,14 @@
  */
 
 module.exports = {
-  moduleFileExtensions: ["js", "jsx", "json", "vue"],
+  moduleFileExtensions: ["js", "vue"],
   moduleDirectories: ["src", "node_modules"],
   transform: {
     "^.*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+    "^.*\\.js$": "<rootDir>/node_modules/babel-jest",
   },
-  transformIgnorePatterns: ["<rootDir>/node_modules/"],
   moduleNameMapper: {},
-  testMatch: [],
+  snapshotSerializers: ["jest-serializer-vue"],
+  testMatch: ["**/__tests__/**/*.spec.js", "**/__tests__/**/*.test.js"],
+  transformIgnorePatterns: ["<rootDir>/node_modules/"],
 };
