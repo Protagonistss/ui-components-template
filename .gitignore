@@ -24,3 +24,6 @@ yarn-error.log*
 # version record
 yarn.lock
 package-lock.json
+
+# test report
+coverage

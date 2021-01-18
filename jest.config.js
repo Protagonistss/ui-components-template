@@ -4,6 +4,8 @@
  */
 
 module.exports = {
+  collectCoverage: true,
+  collectCoverageFrom: [],
   moduleFileExtensions: ["js", "vue"],
   moduleDirectories: ["src", "node_modules"],
   transform: {
