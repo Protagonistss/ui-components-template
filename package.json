@@ -9,6 +9,7 @@
   "scripts": {
     "start": "webpack serve --config scripts/webpack.config.js",
     "build": "webpack --config scripts/webpack.config.js",
+    "lib": "rollup -w -c scripts/rollup.config.js",
     "eslint": "eslint --ext .js,.vue examples/ src/",
     "format": "eslint --fix --ext .js,.vue examples/ src/",
     "test": "jest"
@@ -46,6 +47,7 @@
     "jest-serializer-vue": "^2.0.2",
     "mini-css-extract-plugin": "^1.3.4",
     "node-sass": "^5.0.0",
+    "rollup": "^2.36.2",
     "sass-loader": "^10.1.1",
     "style-loader": "^2.0.0",
     "vue": "^2.6.12",
