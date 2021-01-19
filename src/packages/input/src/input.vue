@@ -1,12 +1,12 @@
 <template>
   <div>
-    <input type="text" :value="foo" />
+    <a-input placeholder="Basic usage" v-model="foo" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Input',
+  name: 'UiInput',
   data() {
     return {
       foo: 'foo',

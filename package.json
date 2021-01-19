@@ -56,6 +56,7 @@
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2"
   },
+  "peerDependencies": {},
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "@babel/runtime-corejs2": "^7.12.5"

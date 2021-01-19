@@ -1,6 +1,7 @@
 <template>
   <div class="app">Hello App
     <a-button type="primary">Button</a-button>
+    <ui-input></ui-input>
   </div>
 </template>
 
