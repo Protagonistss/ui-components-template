@@ -1,5 +1,7 @@
 <template>
-  <div class="app">Hello App</div>
+  <div class="app">Hello App
+    <a-button type="primary">Button</a-button>
+  </div>
 </template>
 
 <script>
