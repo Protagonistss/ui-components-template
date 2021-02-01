@@ -1,4 +1,8 @@
 import { join } from "path";
+import babelPlugin from "@rollup/plugin-babel";
+import rollupPluginNodeResolve from "rollup-plugin-node-resolve";
+import rollupVuePlugin from "rollup-plugin-vue";
+import commonjs from "@rollup/plugin-commonjs";
 function resolve(dir) {
   return join(__dirname, dir);
 }
@@ -8,14 +12,23 @@ export default {
   output: {
     file: resolve("../lib/bundle.js"),
     format: "cjs",
+    globals: {
+      vue: "Vue",
+    },
   },
   watch: {
     include: resolve("../explore/**"),
   },
   plugins: [
-    babel({
-      exclude: "node_modules/**",
-      runtimeHelpers: true
+    rollupPluginNodeResolve(),
+    rollupVuePlugin({
+      css: true,
+      compileTemplate: true,
     }),
+    babelPlugin({
+      exclude: "node_modules/**",
+      babelHelpers: "runtime",
+    }),
+    commonjs(),
   ],
 };
