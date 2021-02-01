@@ -12,4 +12,10 @@ export default {
   watch: {
     include: resolve("../explore/**"),
   },
+  plugins: [
+    babel({
+      exclude: "node_modules/**",
+      runtimeHelpers: true
+    }),
+  ],
 };

@@ -20,5 +20,8 @@
                 "style": "css"
             }
         ]
+    ],
+    "ignore": [
+        "node_modules/**"
     ]
 }
