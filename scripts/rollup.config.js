@@ -1,36 +1,44 @@
 import { join } from "path";
 import babelPlugin from "@rollup/plugin-babel";
-import rollupPluginNodeResolve from "rollup-plugin-node-resolve";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import rollupVuePlugin from "rollup-plugin-vue";
 import commonjs from "@rollup/plugin-commonjs";
-import lessPlugin from "rollup-plugin-less";
+import postCss from "rollup-plugin-postcss";
+import alias from "rollup-plugin-alias";
 function resolve(dir) {
   return join(__dirname, dir);
 }
 
 export default {
-  input: resolve("../explore/index.js"),
+  input: resolve("../src/packages/index.js"),
   output: {
-    file: resolve("../lib/bundle.js"),
-    format: "cjs",
+    file: resolve("../lib/bpm-component.js"),
+    name: "bpm",
+    format: "esm",
     globals: {
       vue: "Vue",
     },
   },
   watch: {
-    include: resolve("../explore/**"),
+    include: resolve("../src/**"),
   },
+  external: ["ant-design-vue"],
   plugins: [
-    rollupPluginNodeResolve(),
-    rollupVuePlugin({
-      css: true,
-      compileTemplate: true,
+    alias({
+      resolve: [".js", ".vue"],
+      entries: {
+        "@": resolve("../src"),
+      },
+    }),
+    nodeResolve(),
+    commonjs(),
+    rollupVuePlugin(),
+    postCss({
+      plugins: [],
     }),
     babelPlugin({
       exclude: "node_modules/**",
       babelHelpers: "runtime",
     }),
-    lessPlugin(),
-    commonjs(),
   ],
 };

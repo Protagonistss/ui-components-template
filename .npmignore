@@ -1,0 +1,18 @@
+examples/
+public/
+# src/
+tests/
+docs/
+.vscode/
+
+yarn-error.log
+vue.config.js
+*.config.js
+*.map
+*.sh
+*.lock
+.eslintignore
+.eslintrc.js
+.prettierrc
+scripts
+node_modules
